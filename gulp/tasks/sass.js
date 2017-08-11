@@ -6,8 +6,11 @@ var gulp = require("gulp"),
     rename = require("gulp-rename");
 
 gulp.task("sass", function () {
-    return gulp.src("./src/sass/**/*.scss")
+    return gulp.src("./src/sass/slides.scss")
         .pipe(sass())
+        .pipe(rename({
+            basename: "style",
+        }))
         .pipe(gulp.dest("./src/css"))
         .pipe(minifyCSS())
         .pipe(rename({
